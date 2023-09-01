@@ -13,7 +13,7 @@ export const ConfigProvider: FC<Props> = props => {
     CustomElement.init((element, context) => {
       if (!isValidConfig(element.config)) {
         throw new Error(
-          `${element.config} Invalid element config, the following properties are missing or invalid ${
+          `${JSON.stringify(element.config)} Invalid element config, the following properties are missing or invalid ${
             findMissingStringProps(Object.keys(emptyConfig))(element.config).join(", ")
           }`,
         );
